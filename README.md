@@ -1,56 +1,64 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# School-Library
 
-# Project Name
+> The School-Library is an OOP-focused application that implements the main functions needed for running a University library. The application will allow the user (librarian) to record what books are in the library and who borrows them and when. It also enables the user (librarian) to add new books, students, and teachers.
 
-> Description the project.
+## Built With ⚙️
 
+- **Major languages**: Ruby Programming Language.
+- **Linters**: Rubocop.
+- **Technologies used**: Git, Gitflow, GitHub, & VS Code.
 
-## Built With
-
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
+## Live Demo (Not Available) 🚀
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
+- [x] Basic Knowledge of **Ruby**.
+- [x] Basic knowledge of **Git** & **GitHub**.
+- [x] Basic knowledge of **Linters**.
+- [x] Basic knowledge of **VS Code** or any other code-editors.
+
 ### Setup
 
-### Install
+- Create a new **Microverse** folder and move into it.
+- Open the **Command Prompt (CMD)** in the current directory (Microverse Folder).
+- Run the following command:
 
-### Usage
+```
+$ git clone https://github.com/ZikaZaki/school-library.git
+```
 
+- Once finished you should see a new folder called **school-library** folder in your current directory.
+- Start customizing the project so it fits your personal preferences and needs.
+- Enjoy your new professional **school-library** application!
+
+### Install Dependencies
+
+To check for linters, use the files provided by [Microverse Ruby-Linters](https://github.com/microverseinc/linters-config/tree/master/ruby). A GitHub action is also set to run during pull request.
+
+```
+$ npm install
+```
 ### Run tests
 
-### Deployment
-
-
+```
+$ npm test
+```
 
 ## Authors
 
-👤 **Author1**
+👤 **Zakariya Al-Khamisi ([ZikaZaki](https://github.com/ZikaZaki))**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [ZikaZaki](https://github.com/ZikaZaki)
+- Twitter: [Zakariya Al-Khamisi](https://twitter.com/ZakariyaKhamisi)
+- LinkedIn: [Zakariya Al-Khamisi](https://www.linkedin.com/in/zakariyaalkhamisisap/)
 
-👤 **Author2**
+## Show your support
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+Give a ⭐️ if you like this project!
 
 ## 🤝 Contributing
 
@@ -58,12 +66,10 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
-## Show your support
-
-Give a ⭐️ if you like this project!
-
 ## Acknowledgments
 
+- [Microverse](https://www.microverse.org/)
+- Code Reviewers & Coding Partners
 - Hat tip to anyone whose code was used
 - Inspiration
 - etc
