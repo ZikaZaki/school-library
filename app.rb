@@ -101,29 +101,34 @@ class App
     puts '7 - Exit'
   end
 
+  def process_option(option)
+    case option
+    when '1'
+      list_books
+    when '2'
+      list_people
+    when '3'
+      create_person
+    when '4'
+      create_book
+    when '5'
+      create_rental
+    when '6'
+      list_rentals_for_person_id
+    else
+      puts 'That is not a valid input'
+    end
+  end
+
   def run
     loop do
       display_menu
       option = gets.chomp
-      case option
-      when '1'
-        list_books
-      when '2'
-        list_people
-      when '3'
-        create_person
-      when '4'
-        create_book
-      when '5'
-        create_rental
-      when '6'
-        list_rentals_for_person_id
-      when '7'
+      if option == '7'
         puts 'Thank you for using this app!'
         break
-      else
-        puts 'That is not a valid input'
       end
+      process_option(option)
     end
   end
 end
