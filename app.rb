@@ -108,16 +108,4 @@ class App
       puts 'That is not a valid input'
     end
   end
-
-  def run
-    loop do
-      display_menu
-      option = gets.chomp
-      if option == '7'
-        puts 'Thank you for using this app!'
-        break
-      end
-      process_option(option)
-    end
-  end
 end

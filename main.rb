@@ -2,13 +2,10 @@ require_relative 'app'
 
 def main
   app = App.new
-  puts '-' * 50
-  puts "|\tWelcome to School Library App!\t\t |"
-  puts '-' * 50
-  app.run
-  
-  def display_menu
-    puts 'Please choose an option by entering a number:'
+  loop do
+    puts '-' * 50
+    puts "|\tWelcome to School Library App!\t\t |"
+    puts '-' * 50
     puts '1 - List all books'
     puts '2 - List all people'
     puts '3 - Create a person'
@@ -16,6 +13,14 @@ def main
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given person id'
     puts '7 - Exit'
+    puts 'Please choose an option by entering a number:'
+    option = gets.chomp
+    if option == '7'
+      puts 'Thank you for using this app!'
+      break
+    else
+      app.process_option(option)
+    end
   end
 end
 
