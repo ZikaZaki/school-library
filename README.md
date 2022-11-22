@@ -56,6 +56,12 @@ $ npm test
 - Twitter: [Zakariya Al-Khamisi](https://twitter.com/ZakariyaKhamisi)
 - LinkedIn: [Zakariya Al-Khamisi](https://www.linkedin.com/in/zakariyaalkhamisisap/)
 
+👤 **Tracy Musongole ([Tracy](https://github.com/TracyMuso))**
+
+- GitHub: [TracyMuso](https://github.com/TracyMuso)
+- Twitter: [tracy_muso](https://twitter.com/tracy_muso)
+- LinkedIn: [Tracy Musongole](https://www.linkedin.com/in/tracy-muso/)
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
