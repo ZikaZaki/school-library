@@ -15,13 +15,9 @@ def main
     puts '7 - Exit'
     puts 'Please choose an option by entering a number:'
     option = gets.chomp
-    if option == '7'
-      puts 'Thank you for using this app!'
-      break
-    else
-      app.process_option(option)
-    end
+    option == '7' ? break : app.process_option(option)
   end
+  puts 'Thank you for using this app!'
 end
 
 main
