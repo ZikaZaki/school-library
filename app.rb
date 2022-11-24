@@ -17,7 +17,7 @@ class App
     puts 'Author:'
     author = gets.chomp
     @books << Book.new(title, author)
-    puts 'Book created successfully\n'
+    puts 'Book created successfully'
   end
 
   def create_student
@@ -28,7 +28,7 @@ class App
     puts 'Has parent permission? [Y/N]'
     parent_permission = gets.chomp.downcase == 'y'
     @people << Student.new(age, name: name, parent_permission: parent_permission)
-    puts 'Person created successfully\n'
+    puts 'Person created successfully'
   end
 
   def create_teacher
@@ -39,7 +39,7 @@ class App
     puts 'Specialization:'
     specialization = gets.chomp
     @people << Teacher.new(age, specialization, name: name)
-    puts 'Person created successfully\n'
+    puts 'Person created successfully'
   end
 
   def create_person
@@ -70,7 +70,7 @@ class App
     puts 'Date:'
     date = gets.chomp
     @rentals << Rental.new(date, @books[book_index], @people[person_index])
-    puts 'Rental created successfully\n'
+    puts 'Rental created successfully'
   end
 
   def list_people
