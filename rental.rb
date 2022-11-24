@@ -8,4 +8,14 @@ class Rental
     @person = person
     person.rentals << self
   end
+
+  def to_json(*args)
+    {
+      'id' => @id,
+      'name' => @name,
+      'age' => @age,
+      'parent_permission' => @parent_permission
+    }.to_json(*args)
+  end
+
 end
