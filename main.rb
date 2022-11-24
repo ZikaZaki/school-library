@@ -2,6 +2,7 @@ require_relative 'app'
 
 def main
   app = App.new
+  app.load_data
   loop do
     puts '-' * 50
     puts "|\tWelcome to School Library App!\t\t |"
@@ -17,6 +18,7 @@ def main
     option = gets.chomp
     option == '7' ? break : app.process_option(option)
   end
+  app.save_data
   puts 'Thank you for using this app!'
 end
 
