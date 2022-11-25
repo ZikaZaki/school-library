@@ -1,36 +1,15 @@
 require 'json'
-require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require_relative 'data_helper'
 
-class App 
+class App
   def initialize
-    @people = []
-    @books = []
-    @rentals = []
-    load_data
-  end
-
-  def load_data
-    File.exist?('./data/books.json') ? 
-      @books = JSON.parse(File.read('./data/books.json')).map { |book| Book.new(book['title'], book['author'], id: book['id']) }
-      : File.open('./data/books.json', 'w') { |file| file.write(JSON.dump([])) }
-
-    File.exist?('./data/people.json') ?
-      @people = JSON.parse(File.read('./data/people.json')).map do |person|
-        person['type'] == 'Student' ?
-        Student.new(person['age'], id: person['id'], name: person['name'], parent_permission: person['parent_permission'], classroom: person['classroom'])
-        : Teacher.new(person['age'], person['specialization'], id: person['id'], name: person['name'])
-      end
-      : File.open('./data/people.json', 'w') { |file| file.write(JSON.dump([])) }
-
-    File.exist?('./data/rentals.json') ?
-      @rentals = JSON.parse(File.read('./data/rentals.json')).map do |rental|
-        Rental.new(rental['date'], @books.find { |book| book.id == rental['book']['id'] }, @people.find { |person| person.id == rental['person']['id'] })
-      end
-      : File.open('./data/rentals.json', 'w') { |file| file.write(JSON.dump([])) }
+    @books = DataHelper.load_books
+    @people = DataHelper.load_people
+    @rentals = DataHelper.load_rentals
   end
 
   def create_book
@@ -108,22 +87,16 @@ class App
     id = gets.chomp.to_i
     puts 'Rentals:'
     @rentals.each do |rental|
-      puts "Date: #{rental.date}, [##{rental.book.id}]-Book '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id
+      if rental.person.id == id
+        puts "Date: #{rental.date}, [##{rental.book.id}]-Book '#{rental.book.title}' by #{rental.book.author}"
+      end
     end
   end
 
   def save_data
-    @books.size > 0 ?
-      File.open('./data/books.json', 'w') { |file| file.write(JSON.dump(@books)) }
-      : File.open('./data/books.json', 'w') { |file| file.write(JSON.dump([])) }
-
-    @people.size > 0 ?
-      File.open('./data/people.json', 'w') { |file| file.write(JSON.dump(@people)) }
-      : File.open('./data/people.json', 'w') { |file| file.write(JSON.dump([])) }
-
-    @rentals.size > 0 ?
-      File.open('./data/rentals.json', 'w') { |file| file.write(JSON.dump(@rentals)) }
-      : File.open('./data/rentals.json', 'w') { |file| file.write(JSON.dump([])) }
+    DataHelper.save_books(@books)
+    DataHelper.save_people(@people)
+    DataHelper.save_rentals(@rentals)
   end
 
   def process_option(option)

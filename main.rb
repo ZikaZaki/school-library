@@ -2,7 +2,6 @@ require_relative 'app'
 
 def main
   app = App.new
-  app.load_data
   loop do
     puts '-' * 50
     puts "|\tWelcome to School Library App!\t\t |"
