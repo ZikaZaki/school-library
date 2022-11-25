@@ -17,6 +17,7 @@ def main
     option = gets.chomp
     option == '7' ? break : app.process_option(option)
   end
+  app.save_data
   puts 'Thank you for using this app!'
 end
 

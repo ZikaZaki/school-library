@@ -1,14 +1,15 @@
-require_relative 'person'
+require 'json'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require_relative 'data_helper'
 
 class App
   def initialize
-    @people = []
-    @books = []
-    @rentals = []
+    @books = DataHelper.load_books
+    @people = DataHelper.load_people
+    @rentals = DataHelper.load_rentals
   end
 
   def create_book
@@ -59,12 +60,12 @@ class App
   def create_rental
     puts 'Select a book from the following list by number'
     @books.each_with_index do |book, index|
-      puts "#{index}) Title: '#{book.title}', Author: #{book.author}"
+      puts "#{index}) [#{book.class}] ID: #{book.id}, Title: '#{book.title}', Author: #{book.author}"
     end
     book_index = gets.chomp.to_i
     puts 'Select a person from the following list by number (not id)'
     @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "#{index}) [#{person.class}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
     end
     person_index = gets.chomp.to_i
     puts 'Date:'
@@ -78,7 +79,7 @@ class App
   end
 
   def list_books
-    @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
+    @books.each { |book| puts "ID: #{book.id}, Title: #{book.title}, Author: #{book.author}" }
   end
 
   def list_rentals_for_person_id
@@ -86,8 +87,16 @@ class App
     id = gets.chomp.to_i
     puts 'Rentals:'
     @rentals.each do |rental|
-      puts "Date: #{rental.date}, Book '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id
+      if rental.person.id == id
+        puts "Date: #{rental.date}, [##{rental.book.id}]-Book '#{rental.book.title}' by #{rental.book.author}"
+      end
     end
+  end
+
+  def save_data
+    DataHelper.save_books(@books)
+    DataHelper.save_people(@people)
+    DataHelper.save_rentals(@rentals)
   end
 
   def process_option(option)
